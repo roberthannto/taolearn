@@ -195,7 +195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://roberthannto.github.io/taolearn/2026/10/01/learn_chinese/classic/zizhitongjian/7/" data-id="cuidvYoBXQCfDzoCtxchYhGqp" data-title="资治通鉴 卷第七 秦纪二" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://roberthannto.github.io/taolearn/2026/10/01/learn_chinese/classic/zizhitongjian/7/" data-id="cuidoltRMhl4qh-_3nYnR0IVw" data-title="资治通鉴 卷第七 秦纪二" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -262,6 +262,14 @@
       <ul>
         
           <li>
+            <a href="/taolearn/2026/10/01/learn_chinese/classic/zizhitongjian/17/">资治通鉴 卷第十七 汉纪九</a>
+          </li>
+        
+          <li>
+            <a href="/taolearn/2026/10/01/learn_chinese/classic/zizhitongjian/16/">资治通鉴 卷第十六 汉纪八</a>
+          </li>
+        
+          <li>
             <a href="/taolearn/2026/10/01/learn_chinese/classic/zizhitongjian/15/">资治通鉴 卷第十五 汉纪七</a>
           </li>
         
@@ -271,14 +279,6 @@
         
           <li>
             <a href="/taolearn/2026/10/01/learn_chinese/classic/zizhitongjian/13/">资治通鉴 卷第十三 汉纪五</a>
-          </li>
-        
-          <li>
-            <a href="/taolearn/2026/10/01/learn_chinese/classic/zizhitongjian/12/">资治通鉴 卷第十二 汉纪四</a>
-          </li>
-        
-          <li>
-            <a href="/taolearn/2026/10/01/learn_chinese/classic/zizhitongjian/11/">资治通鉴 卷第十一 汉纪三</a>
           </li>
         
       </ul>
@@ -328,5 +328,67 @@
 
 
   </div>
-</body>
+<!-- hexo injector body_end start --><style>
+  .article-share-box .article-share-weibo,
+  .article-share-box .article-share-wechat {
+    width: 50px; height: 36px; display: block; float: left;
+    position: relative; color: #999; text-shadow: 0 1px #fff;
+    text-decoration: none; cursor: pointer;
+  }
+  .article-share-box .article-share-weibo .fa,
+  .article-share-box .article-share-wechat .fa {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); font-size: 20px; text-align: center;
+  }
+  .article-share-weibo:hover { color: #fff; background: #e6162d; text-shadow: 0 1px #b3121f; }
+  .article-share-wechat:hover { color: #fff; background: #09bb07; text-shadow: 0 1px #067a05; }
+  .article-share-box { margin-left: -245px; }
+  #wechat-qr-mask { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; background: rgba(0,0,0,.45); z-index: 9999; }
+  #wechat-qr-box { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; padding: 18px; border-radius: 6px; text-align: center; box-shadow: 0 4px 24px rgba(0,0,0,.25); }
+  #wechat-qr-box p { margin: 8px 0 0; font-size: 13px; color: #666; }
+  #wechat-qr-canvas { width: 160px; height: 160px; }
+</style>
+<div id="wechat-qr-mask"><div id="wechat-qr-box"><div id="wechat-qr-canvas"></div><p>微信扫一扫，分享给朋友</p></div></div>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script>
+(function () {
+  var mask = document.getElementById("wechat-qr-mask");
+  function showQR(url) {
+    var holder = document.getElementById("wechat-qr-canvas");
+    holder.innerHTML = "";
+    if (window.QRCode) { new QRCode(holder, { text: url, width: 160, height: 160 }); }
+    else { holder.textContent = url; }
+    mask.style.display = "block";
+  }
+  mask.addEventListener("click", function (e) { if (e.target === mask) mask.style.display = "none"; });
+  function enhance(box) {
+    var links = box.querySelector(".article-share-links");
+    if (!links || links.querySelector(".article-share-weibo")) return;
+    var id = box.id.replace("article-share-box-", "");
+    var trigger = document.querySelector('.article-share-link[data-id="' + id + '"]');
+    var url = trigger ? trigger.getAttribute("data-url") : window.location.href;
+    var title = trigger ? trigger.getAttribute("data-title") : document.title;
+    var weibo = document.createElement("a");
+    weibo.className = "article-share-weibo"; weibo.title = "微博";
+    weibo.target = "_blank"; weibo.rel = "noopener";
+    weibo.href = "https://service.weibo.com/share/share.php?url=" + encodeURIComponent(url) + "&title=" + encodeURIComponent(title || document.title);
+    weibo.innerHTML = "<span class='fa fa-weibo'></span>";
+    var wechat = document.createElement("a");
+    wechat.className = "article-share-wechat"; wechat.title = "微信";
+    wechat.innerHTML = "<span class='fa fa-weixin'></span>";
+    wechat.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); showQR(url); });
+    links.appendChild(weibo);
+    links.appendChild(wechat);
+  }
+  new MutationObserver(function (muts) {
+    muts.forEach(function (m) {
+      Array.prototype.forEach.call(m.addedNodes, function (n) {
+        if (n.nodeType !== 1) return;
+        if (n.classList && n.classList.contains("article-share-box")) enhance(n);
+        else if (n.querySelector) { var b = n.querySelector(".article-share-box"); if (b) enhance(b); }
+      });
+    });
+  }).observe(document.body, { childList: true });
+})();
+</script><!-- hexo injector body_end end --></body>
 </html>
