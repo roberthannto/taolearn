@@ -176,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://roberthannto.github.io/taolearn/2026/10/01/learn_chinese/classic/zizhitongjian/8/" data-id="cuidfAQqlWEV2EVvMiEBXRxPp" data-title="资治通鉴 卷第八 秦纪三" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://roberthannto.github.io/taolearn/2026/10/01/learn_chinese/classic/zizhitongjian/8/" data-id="cuidQpxP3ShtnUTdUXlustiou" data-title="资治通鉴 卷第八 秦纪三" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -310,6 +310,31 @@
 
   </div>
 <!-- hexo injector body_end start --><style>
+  .article-meta .page-pv {
+    float: left; line-height: 1em; margin-left: 8px;
+    color: #ccc; text-shadow: 0 1px #fff;
+  }
+  .article-meta .page-pv:before { content: "\2022"; }
+  .article-meta .page-pv .fa { margin-right: 3px; }
+</style>
+<script>
+(function () {
+  function addPv() {
+    var meta = document.querySelector(".article-meta");
+    if (!meta || meta.querySelector(".page-pv")) return;
+    var span = document.createElement("div");
+    span.className = "page-pv";
+    span.innerHTML = '<span id="busuanzi_container_page_pv" style="display:none">' +
+      '<span class="fa fa-eye"></span> 阅读 <span id="busuanzi_value_page_pv">-</span> 次</span>';
+    meta.appendChild(span);
+  }
+  addPv();
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
+  document.body.appendChild(s);
+})();
+</script><style>
   .article-share-box .article-share-weibo,
   .article-share-box .article-share-wechat {
     width: 50px; height: 36px; display: block; float: left;
